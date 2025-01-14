@@ -3,6 +3,10 @@
 ### Health check
 GET {{hostUrl}}/health
 
+### Open Api Json
+GET {{hostUrl}}/openapi/v1.json
+Accept: application/json
+
 ### Get all categories
 GET {{hostUrl}}/products/categories
 Accept: application/json
