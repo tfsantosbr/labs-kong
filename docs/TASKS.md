@@ -24,6 +24,7 @@
 
     - [ ] Mapear endpoints de Orders
     - [ ] Adicionar Rate Limit em Orders
+    - [ ] Adicionar Trotling em Orders
     - [ ] Adicionar Autenticação em Orders
     - [ ] Adicionar Autorização em Orders
     - [ ] Adicionar Monitoramento
