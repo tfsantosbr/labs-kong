@@ -8,7 +8,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     networks:
-      - kong-net
+      - api-gateway-net
 
   products-api:
     build:
@@ -19,7 +19,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     networks:
-      - kong-net
+      - api-gateway-net
 
   postgres:
     image: postgres:latest
@@ -37,7 +37,7 @@ services:
       timeout: 5s
       retries: 3
     networks:
-      - kong-net
+      - api-gateway-net
 
   kong-migration:
     image: kong:latest
@@ -51,7 +51,7 @@ services:
         condition: service_healthy
     restart: on-failure
     networks:
-      - kong-net
+      - api-gateway-net
 
   kong:
     image: kong:latest
@@ -79,11 +79,11 @@ services:
         condition: service_started
     restart: on-failure
     networks:
-      - kong-net
+      - api-gateway-net
 
 volumes:
   postgres_data:
 
 networks:
-  kong-net:
+  api-gateway-net:
     driver: bridge
