@@ -14,6 +14,23 @@
   - [x] Criar endpoint public de categoria de Produtos
   - [x] Criar endpoint de CRUD de Produtos
 
+## Kraken D
+
+- [x] Estrutura
+
+  - [ ] Provisionar o Kong no Docker Compose
+
+- [ ] Funcionalidades
+
+  - [ ] Mapear endpoints de Orders
+  - [ ] Adicionar Rate Limit em Orders
+  - [ ] Adicionar Correlation ID em Orders
+  - [ ] Adicionar Autenticação em Orders
+  - [ ] Adicionar Autorização em Orders
+  - [ ] Adicionar Monitoramento
+  - [ ] Adicionar uma funcionalidade de BFF entre Orders e Products
+  - [ ] Descobrir como importar open api json no kong
+
 ## Kong
 
 - [x] Estrutura
@@ -24,6 +41,7 @@
 
   - [x] Mapear endpoints de Orders
   - [x] Adicionar Rate Limit em Orders
+  - [x] Adicionar Correlation ID em Orders
   - [ ] Adicionar Autenticação em Orders
   - [ ] Adicionar Autorização em Orders
   - [ ] Adicionar Monitoramento

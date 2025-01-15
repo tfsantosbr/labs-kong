@@ -1,35 +1,21 @@
 @hostUrl = http://localhost:8000
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyLCJpc3MiOiJDVDZ5SjNxcDh1MWJxaE9DNGJ3Q0tHeW1tQUlIUHAzNCJ9.wdvhk_p-mArCCY96uy3QHdYwb29jd4A5vX3191F3nqA
-
-### Health check
-GET {{hostUrl}}/health
-Accept: application/json
-
-### Open Api Json
-GET {{hostUrl}}/openapi/v1.json
-Accept: application/json
 
 ### Get all orders
 GET {{hostUrl}}/orders
 Accept: application/json
-Authorization: Bearer {{token}}
 
 ### Get order by id
 GET {{hostUrl}}/orders/1
 Accept: application/json
-Authorization: Bearer {{token}}
 
 ### Create new order
 POST {{hostUrl}}/orders
 Content-Type: application/json
-Authorization: Bearer {{token}}
 
 ### Update order
 PUT {{hostUrl}}/orders/1
 Content-Type: application/json
-Authorization: Bearer {{token}}
 
 ### Delete order
 DELETE {{hostUrl}}/orders/1
 Accept: application/json
-Authorization: Bearer {{token}}
