@@ -22,9 +22,8 @@
 
 - [ ] Funcionalidades por UI
 
-  - [ ] Mapear endpoints de Orders
-  - [ ] Adicionar Rate Limit em Orders
-  - [ ] Adicionar Trotling em Orders
+  - [x] Mapear endpoints de Orders
+  - [x] Adicionar Rate Limit em Orders
   - [ ] Adicionar Autenticação em Orders
   - [ ] Adicionar Autorização em Orders
   - [ ] Adicionar Monitoramento
