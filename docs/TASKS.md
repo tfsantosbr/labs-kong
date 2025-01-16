@@ -29,4 +29,3 @@
   - [ ] Adicionar Autorização em Orders
   - [ ] Adicionar Monitoramento
   - [ ] Adicionar uma funcionalidade de BFF entre Orders e Products
-  - [ ] Descobrir como importar open api json no kong

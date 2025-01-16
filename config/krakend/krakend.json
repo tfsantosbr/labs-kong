@@ -6,25 +6,23 @@
     {
       "endpoint": "/orders/v1/orders",
       "method": "GET",
-      "output_encoding": "no-op",
+      "output_encoding": "json-collection",
       "backend": [
         {
           "url_pattern": "/orders",
           "method": "GET",
-          "encoding": "no-op",
-          "host": ["http://orders-api:8080"]
+          "host": ["http://orders-api:8080"],
+          "is_collection": true
         }
       ]
     },
     {
       "endpoint": "/orders/v1/orders/{id}",
       "method": "GET",
-      "output_encoding": "no-op",
       "backend": [
         {
           "url_pattern": "/orders/{id}",
           "method": "GET",
-          "encoding": "no-op",
           "host": ["http://orders-api:8080"]
         }
       ]
@@ -32,15 +30,22 @@
     {
       "endpoint": "/orders/v1/orders",
       "method": "POST",
-      "output_encoding": "no-op",
       "backend": [
         {
           "url_pattern": "/orders",
           "method": "POST",
-          "encoding": "no-op",
           "host": ["http://orders-api:8080"]
         }
-      ]
+      ],
+      "extra_config": {
+        "auth/validator": {
+          "alg": "HS256",
+          "jwk_local_path": "./symetric.json",
+          "roles": ["admin"],
+          "disable_jwk_security": true,
+          "operation_debug": true
+        }
+      }
     },
     {
       "endpoint": "/orders/v1/orders/{id}",
@@ -68,10 +73,5 @@
         }
       ]
     }
-  ],
-  "extra_config": {
-    "router": {
-      "hide_version_header": true
-    }
-  }
+  ]
 }

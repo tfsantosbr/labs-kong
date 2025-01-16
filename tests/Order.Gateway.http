@@ -1,4 +1,5 @@
 @hostUrl = http://localhost:8080
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImRlZmF1bHQifQ.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyLCJyb2xlcyI6ImFkbWluIn0.P4UIKYGxu346A54Oq00tgYi96mYhyp4if5k_ijl5Wo0
 
 ### Get all orders
 GET {{hostUrl}}/orders/v1/orders
@@ -11,6 +12,7 @@ Accept: application/json
 ### Create new order
 POST {{hostUrl}}/orders/v1/orders
 Content-Type: application/json
+Authorization: Bearer {{token}}
 
 ### Update order
 PUT {{hostUrl}}/orders/v1/orders/1
