@@ -1,21 +1,21 @@
-@hostUrl = http://localhost:8000
+@hostUrl = http://localhost:8080
 
 ### Get all orders
-GET {{hostUrl}}/orders
+GET {{hostUrl}}/orders/v1/orders
 Accept: application/json
 
 ### Get order by id
-GET {{hostUrl}}/orders/1
+GET {{hostUrl}}/orders/v1/orders/1
 Accept: application/json
 
 ### Create new order
-POST {{hostUrl}}/orders
+POST {{hostUrl}}/orders/v1/orders
 Content-Type: application/json
 
 ### Update order
-PUT {{hostUrl}}/orders/1
+PUT {{hostUrl}}/orders/v1/orders/1
 Content-Type: application/json
 
 ### Delete order
-DELETE {{hostUrl}}/orders/1
+DELETE {{hostUrl}}/orders/v1/orders/1
 Accept: application/json

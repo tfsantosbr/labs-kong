@@ -11,9 +11,9 @@ if (app.Environment.IsDevelopment())
 
 // Order Endpoints
 
-app.MapGet("/orders", () => Results.Ok(new[] { "Order1", "Order2" }));
-app.MapGet("/orders/{id}", (int id) => Results.Ok($"Order{id}"));
-app.MapPost("/orders", () => Results.Created("/orders/1", "Order1"));
+app.MapGet("/orders", () => Results.Ok(new[] { new { Name = "Order 1" }, new { Name = "Order 2" } }));
+app.MapGet("/orders/{id}", (int id) => Results.Ok(new { Name = $"Order {id}" }));
+app.MapPost("/orders", () => Results.Created("/orders/1", new { Name = "Order 1" }));
 app.MapPut("/orders/{id}", (int id) => Results.NoContent());
 app.MapDelete("/orders/{id}", (int id) => Results.NoContent());
 

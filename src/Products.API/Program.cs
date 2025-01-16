@@ -11,15 +11,21 @@ if (app.Environment.IsDevelopment())
 
 // Product Endpoints
 
-app.MapGet("/products", () => Results.Ok(new[] { "Product1", "Product2" }));
-app.MapGet("/products/{id}", (int id) => Results.Ok($"Product{id}"));
-app.MapPost("/products", () => Results.Created("/products/1", "Product1"));
+app.MapGet("/products", () => Results.Ok(new[] { new { Name = "Product 1" }, new { Name = "Product 2" } }));
+app.MapGet("/products/{id}", (int id) => Results.Ok(new { Name = $"Product {id}" }));
+app.MapPost("/products", () => Results.Created("/products/1", new { Name = "Product 1" }));
 app.MapPut("/products/{id}", (int id) => Results.NoContent());
 app.MapDelete("/products/{id}", (int id) => Results.NoContent());
 
 // Categories Endpoint
 
-app.MapGet("/products/categories", () => Results.Ok(new[] { "Electronics", "Books", "Clothing", "Food" }));
+app.MapGet("/products/categories", () => Results.Ok(new[]
+{
+    new { Name = "Electronics" },
+    new { Name = "Books" },
+    new { Name = "Clothing" },
+    new { Name = "Food" }
+}));
 
 // healthcheck Endpoints
 
