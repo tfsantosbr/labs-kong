@@ -2,17 +2,16 @@
   "$schema": "https://www.krakend.io/schema/v2.8/krakend.json",
   "version": 3,
   "timeout": "3s",
+  "output_encoding": "no-op",
   "endpoints": [
     {
       "endpoint": "/orders/v1/orders",
       "method": "GET",
-      "output_encoding": "json-collection",
       "backend": [
         {
           "url_pattern": "/orders",
           "method": "GET",
-          "host": ["http://orders-api:8080"],
-          "is_collection": true
+          "host": ["http://orders-api:8080"]
         }
       ]
     },
@@ -50,12 +49,10 @@
     {
       "endpoint": "/orders/v1/orders/{id}",
       "method": "PUT",
-      "output_encoding": "no-op",
       "backend": [
         {
           "url_pattern": "/orders/{id}",
           "method": "PUT",
-          "encoding": "no-op",
           "host": ["http://orders-api:8080"]
         }
       ]
@@ -63,12 +60,10 @@
     {
       "endpoint": "/orders/v1/orders/{id}",
       "method": "DELETE",
-      "output_encoding": "no-op",
       "backend": [
         {
           "url_pattern": "/orders/{id}",
           "method": "DELETE",
-          "encoding": "no-op",
           "host": ["http://orders-api:8080"]
         }
       ]
