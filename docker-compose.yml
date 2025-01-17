@@ -21,6 +21,23 @@ services:
     networks:
       - api-gateway-net
 
+  keycloak:
+    image: quay.io/keycloak/keycloak
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      KC_LOG_LEVEL: INFO
+      KC_HEALTH_ENABLED: true
+    volumes:
+      - ${PWD}/config/keycloak/realm.json:/opt/keycloak/data/import/realm-export.json:ro
+    ports:
+      - "7000:8080"
+    command:
+      - start-dev
+      - --import-realm
+    networks:
+      - api-gateway-net
+
   krakend:
     image: devopsfaith/krakend:watch
     volumes:
@@ -33,20 +50,61 @@ services:
     networks:
       - api-gateway-net
 
-  keycloak:
-    image: quay.io/keycloak/keycloak
-    environment:
-      KEYCLOAK_ADMIN: admin
-      KEYCLOAK_ADMIN_PASSWORD: admin
-      KC_LOG_LEVEL: INFO
-      KC_HEALTH_ENABLED: true
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib
     volumes:
-      - ./config/keycloak/realm.json:/opt/keycloak/data/import/realm-export.json:ro
+      - ${PWD}/config/otel-collector/otel-collector.yaml:/etc/otelcol-contrib/config.yaml
     ports:
-      - "3000:8080"
+      - 8888:8888
+      - 8889:8889
+      - 13133:13133
+      - 4317:4317
+      - 4318:4318
+    networks:
+      - api-gateway-net
+
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - ${PWD}/config/prometheus/:/etc/prometheus/
     command:
-      - start-dev
-      - --import-realm
+      - --config.file=/etc/prometheus/prometheus.yaml
+      - --web.enable-remote-write-receiver
+    ports:
+      - 9090:9090
+    networks:
+      - api-gateway-net
+
+  grafana:
+    image: grafana/grafana
+    volumes:
+      - ${PWD}/grafana/provisioning/:/etc/grafana/provisioning/
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: "admin"
+    depends_on:
+      - prometheus
+    ports:
+      - 3000:3000
+    networks:
+      - api-gateway-net
+
+  loki:
+    image: grafana/loki:main
+    ports:
+      - "3100:3100"
+    volumes:
+      - ${PWD}/config/loki/loki.yaml:/etc/loki/loki-config.yaml
+    networks:
+      - api-gateway-net
+
+  tempo:
+    image: grafana/tempo:latest
+    command: -config.file=/etc/tempo.yaml
+    volumes:
+      - ${PWD}/config/tempo/tempo.yaml:/etc/tempo.yaml
+    ports:
+      - "3200:3200"
+      - "4317"
     networks:
       - api-gateway-net
 

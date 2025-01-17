@@ -1,4 +1,4 @@
-@host = localhost:3000
+@host = localhost:7000
 @realm = eventflix
 @cliendId = krakend-gateway
 @username = customer@email.com
