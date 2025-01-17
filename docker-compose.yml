@@ -33,6 +33,23 @@ services:
     networks:
       - api-gateway-net
 
+  keycloak:
+    image: quay.io/keycloak/keycloak
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      KC_LOG_LEVEL: INFO
+      KC_HEALTH_ENABLED: true
+    volumes:
+      - ./config/keycloak/realm.json:/opt/keycloak/data/import/realm-export.json:ro
+    ports:
+      - "3000:8080"
+    command:
+      - start-dev
+      - --import-realm
+    networks:
+      - api-gateway-net
+
 networks:
   api-gateway-net:
     driver: bridge

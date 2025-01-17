@@ -14,7 +14,7 @@
   - [x] Criar endpoint public de categoria de Produtos
   - [x] Criar endpoint de CRUD de Produtos
 
-## Kong
+## Krakend
 
 - [x] Estrutura
 
@@ -22,10 +22,10 @@
 
 - [ ] Funcionalidades
 
-  - [ ] Mapear endpoints de Orders
-  - [ ] Adicionar Rate Limit em Orders
+  - [x] Mapear endpoints de Orders
+  - [x] Adicionar Rate Limit em Orders
   - [ ] Adicionar Correlation ID em Orders
-  - [ ] Adicionar Autenticação em Orders
-  - [ ] Adicionar Autorização em Orders
+  - [x] Adicionar Autenticação em Orders
+  - [x] Adicionar Autorização em Orders
   - [ ] Adicionar Monitoramento
   - [ ] Adicionar uma funcionalidade de BFF entre Orders e Products

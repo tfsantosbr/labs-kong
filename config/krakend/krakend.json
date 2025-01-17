@@ -38,11 +38,13 @@
       ],
       "extra_config": {
         "auth/validator": {
-          "alg": "HS256",
-          "jwk_local_path": "./symetric.json",
-          "roles": ["admin"],
+          "alg": "RS256",
+          "jwk_url": "http://keycloak:8080/realms/eventflix/protocol/openid-connect/certs",
           "disable_jwk_security": true,
-          "operation_debug": true
+          "operation_debug": true,
+          "roles_key": "realm_access.roles",
+          "roles_key_is_nested": true,
+          "roles": ["admin"]
         }
       }
     },
