@@ -1,7 +1,7 @@
 {
   "$schema": "https://www.krakend.io/schema/v2.8/krakend.json",
   "version": 3,
-  "timeout": "3s",
+  "timeout": "2s",
   "output_encoding": "no-op",
   "endpoints": [
     {
@@ -67,6 +67,72 @@
           "url_pattern": "/orders/{id}",
           "method": "DELETE",
           "host": ["http://orders-api:8080"]
+        }
+      ]
+    },
+    {
+      "endpoint": "/products/v1/products",
+      "method": "GET",
+      "backend": [
+        {
+          "url_pattern": "/products",
+          "method": "GET",
+          "host": ["http://products-api:8080"]
+        }
+      ]
+    },
+    {
+      "endpoint": "/products/v1/products/{id}",
+      "method": "GET",
+      "backend": [
+        {
+          "url_pattern": "/products/{id}",
+          "method": "GET",
+          "host": ["http://products-api:8080"]
+        }
+      ]
+    },
+    {
+      "endpoint": "/products/v1/products",
+      "method": "POST",
+      "backend": [
+        {
+          "url_pattern": "/products",
+          "method": "POST",
+          "host": ["http://products-api:8080"]
+        }
+      ]
+    },
+    {
+      "endpoint": "/products/v1/products/{id}",
+      "method": "PUT",
+      "backend": [
+        {
+          "url_pattern": "/products/{id}",
+          "method": "PUT",
+          "host": ["http://products-api:8080"]
+        }
+      ]
+    },
+    {
+      "endpoint": "/products/v1/products/{id}",
+      "method": "DELETE",
+      "backend": [
+        {
+          "url_pattern": "/products/{id}",
+          "method": "DELETE",
+          "host": ["http://products-api:8080"]
+        }
+      ]
+    },
+    {
+      "endpoint": "/products/v1/categories",
+      "method": "GET",
+      "backend": [
+        {
+          "url_pattern": "/products/categories",
+          "method": "GET",
+          "host": ["http://products-api:8080"]
         }
       ]
     }

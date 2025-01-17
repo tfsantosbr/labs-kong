@@ -18,14 +18,14 @@
 
 - [x] Estrutura
 
-  - [ ] Provisionar o Kong no Kubernetes
+  - [ ] Provisionar o Krakend no Kubernetes
 
 - [ ] Funcionalidades
 
   - [x] Mapear endpoints de Orders
+  - [x] Mapear endpoints de Products
   - [x] Adicionar Rate Limit em Orders
-  - [ ] Adicionar Correlation ID em Orders
-  - [x] Adicionar Autenticação em Orders
-  - [x] Adicionar Autorização em Orders
-  - [ ] Adicionar Monitoramento
+  - [x] Adicionar Autenticação (Keycloak)
+  - [x] Adicionar Autorização (Keycloak)
   - [ ] Adicionar uma funcionalidade de BFF entre Orders e Products
+  - [ ] Adicionar Monitoramento
