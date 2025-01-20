@@ -136,5 +136,35 @@
         }
       ]
     }
-  ]
+  ],
+  "extra_config": {
+    "telemetry/opentelemetry": {
+      "service_name": "krakend-api-gateway",
+      "service_version": "1.0.0",
+      "exporters": {
+        "otlp": [
+          {
+            "name": "local-otlp-collector",
+            "host": "otel-collector",
+            "port": 4317,
+            "use_http": false
+          }
+        ]
+      },
+      "layers": {
+        "backend": {
+          "metrics": {
+            "round_trip": true,
+            "read_payload": true,
+            "detailed_connection": true
+          },
+          "traces": {
+            "round_trip": true,
+            "read_payload": true,
+            "detailed_connection": true
+          }
+        }
+      }
+    }
+  }
 }
