@@ -95,11 +95,12 @@ services:
       - api-gateway-net
 
   loki:
-    image: grafana/loki:main
+    image: grafana/loki:latest
+    command: -config.file=/etc/loki/loki-config.yaml
+    volumes:
+      - ./config/loki/loki-config.yaml:/etc/loki/loki-config.yaml
     ports:
       - "3100:3100"
-    volumes:
-      - ./config/loki/loki.yaml:/etc/loki/loki-config.yaml
     networks:
       - api-gateway-net
 
